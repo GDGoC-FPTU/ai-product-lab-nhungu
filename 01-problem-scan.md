@@ -1,119 +1,108 @@
 # 01 — Problem Scan & Quick Cards (Bài cá nhân)
 
-> **Họ và tên:** 🔧 Dương Quang Khải
-> **MSSV / Email:** 🔧 duongkhai222204pt@gmail.com
-> **Nhóm:** 🔧 null
-> **Mảng kinh doanh lựa chọn:** Xanh SM (GSM) — Vận hành xe taxi điện thông minh.
+> **Họ và tên:** 🔧 Phùng Hoàng Anh
+> **MSSV / Email:** 🔧 anhh3642@gmail.com
+> **Nhóm:** 🔧 nhungu
+> **Mảng kinh doanh lựa chọn:** Vinmec
 
 ---
 
 ## 🔍 Phase 1 — SCAN: Quét cơ hội bằng 4 Lenses
 
-| # | Subsidiary | Lens | Mô tả ngắn bài toán |
-|---|------------|------|---------------------|
-| 1 | **Xanh SM** | Tốn thời gian | Điều phối viên xử lý thủ công sự cố tài xế báo hết pin / sự cố sạc giữa đường: tra cứu vị trí xe, tìm trạm sạc trống và soạn tin chỉ đường (15 phút/lượt). |
-| 2 | **Xanh SM** | Lặp lại | Phân bổ lại cuốc xe khi khách đổi điểm đến giữa chừng, phải tính lại lộ trình và giá cước thủ công. |
-| 3 | **VinFast** | Lặp lại | Đối chiếu hóa đơn sạc điện hằng tuần từ hàng nghìn trụ sạc đối tác với dữ liệu tài chính nội bộ. |
-| 4 | **Vinhomes** | AI có thể tốt hơn | Phân loại & điều hướng phản ánh cư dân (mất nước, hỏng đèn, ồn ào) trên App Resident đến đúng ban quản lý từng tòa (phản hồi rập khuôn, chậm ~12 tiếng). |
-| 5 | **Xanh SM** | Pain từ người khác | Nghe ghi âm cuộc gọi hủy chuyến + ghi chú tài xế để phân loại 10 lý do hủy phổ biến nhằm tìm pattern lỗi hệ thống. |
-| 6 | **Vinmec** | Tốn thời gian | Soạn thảo bản tóm tắt hồ sơ xuất viện cho bệnh nhân từ bệnh án điện tử (20–30 phút/bệnh nhân, bác sĩ quá tải). |
+|| # | Subsidiary | Lens | Mô tả ngắn bài toán |
+|---|----------------------------------|------|---------------------|
+| 1 | Vinmec | Time-consuming | Phân luồng nhu cầu khám và đặt lịch thủ công, phải đối chiếu chuyên khoa, slot bác sĩ, mức độ ưu tiên và gọi xác nhận lại nhiều vòng. |
+| 2 | Vinmec | AI-upgrade | Tóm tắt hồ sơ bệnh án trước giờ khám từ nhiều nguồn dữ liệu rời rạc, giúp bác sĩ nắm nhanh tiền sử và thuốc đang dùng. |
+| 3 | Vinmec | Repetitive | Soạn giấy ra viện, hướng dẫn tái khám và dặn dò thuốc gần như lặp lại nhưng vẫn phải cá nhân hóa theo từng ca bệnh. |
+| 4 | Vinmec | Stakeholder Pain | Tổng đài/CSKH trả lời lặp lại các câu hỏi về giờ khám, chuẩn bị xét nghiệm, bảo hiểm, chỉ đường và quy định nhập viện. |
+| 5 | Vinmec | Repetitive | Đối soát hồ sơ bảo hiểm và kiểm tra thiếu giấy tờ, thiếu mã ICD, thiếu chữ ký hoặc lệch thông tin bệnh nhân trước khi gửi đi. |
 
 ---
 
 ## 🃏 Phase 2 — QUICK-ASSESS: 3 Quick Problem Cards
 
-Chọn top 3 từ danh sách SCAN: **#1 (Xanh SM — Sự cố hết pin thực địa), #4 (Vinhomes — Phản ánh cư dân), #5 (Xanh SM — Phân tích hủy chuyến).**
-
-### Card #1 — Xanh SM: Xử lý sự cố hết pin thực địa
-
-```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #1                                       │
 │                                                             │
-│ Bài toán: Tài xế Xanh SM báo hết pin / sự cố sạc giữa       │
-│ đường, cần điều phối viên hướng dẫn đến trạm sạc gần nhất    │
-│ hoặc điều xe cứu hộ.                                         │
-│ Công ty thành viên: [x] Xanh SM (GSM)                       │
+│ Bài toán (1 câu): Tự động phân luồng nhu cầu khám và đặt    │
+│ lịch cho bệnh nhân Vinmec theo chuyên khoa và slot phù hợp. │
 │                                                             │
-│ Ai đang đau? Tài xế (chờ đợi, mất cuốc) + Điều phối viên     │
-│ (quá tải giờ cao điểm).                                     │
+│ Công ty thành viên: [x] Vinmec                              │
 │                                                             │
-│ Workflow thủ công hiện tại (5 bước):                        │
-│   1. Tài xế gọi tổng đài báo hết pin                        │
-│   → 2. Điều phối viên tra cứu vị trí GPS của xe             │
-│   → 3. Tra cứu thủ công trạm sạc VinFast còn trụ trống       │
-│   → 4. Soạn tin nhắn chỉ đường gửi qua App tài xế           │
-│   → 5. Gọi xe cứu hộ nếu pin đã cạn kiệt                    │
+│ Ai đang đau (Actor)? Nhân viên lễ tân/điều phối lịch khám.  │
 │                                                             │
-│ Bước nào tốn nhất? Bước 3-4 (⏱ ~10 phút/lượt)               │
-│ AI có thể nhảy vào ở bước nào? Bước 3-4 (tra trạm trống &   │
-│ tự động soạn tin chỉ đường dạng nháp).                      │
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Nhận yêu cầu từ hotline/app/quầy tiếp tân              │
+│   2. Hỏi triệu chứng, chuyên khoa, bảo hiểm, thời gian      │
+│   3. Tra lịch trống của bác sĩ/phòng khám                   │
+│   4. Gọi/nhắn lại để xác nhận lịch                           │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)?                        │
-│ Giảm thời gian xử lý sự cố từ 15 phút ──> dưới 3 phút.      │
+│ Bước nào tốn thời gian/lỗi nhất? Đối chiếu slot và xác      │
+│ nhận qua lại với bệnh nhân (4-7 phút/lượt)                  │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Gợi ý chuyên khoa,   │
+│ đề xuất slot phù hợp và soạn tin nhắn xác nhận ban đầu.     │
 │                                                             │
-│ Quick Architecture: [x] LLM Feature                         │
+│ Đo thành công bằng gì (Metric có số)? Giảm thời gian đặt   │
+│ lịch trung bình từ 6 phút xuống dưới 2 phút và giảm ít      │
+│ nhất 30% số cuộc gọi xác nhận lại.                          │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent│
 └─────────────────────────────────────────────────────────────┘
-```
 
-### Card #2 — Vinhomes: Phân loại & Điều hướng phản ánh cư dân
-
-```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #2                                       │
 │                                                             │
-│ Bài toán: Phân loại tự động khiếu nại cư dân trên App        │
-│ Resident và route đến đúng ban quản lý từng tòa nhà.        │
-│ Công ty thành viên: [x] Vinhomes                            │
+│ Bài toán (1 câu): Tóm tắt hồ sơ bệnh án trước buổi khám để  │
+│ bác sĩ nhìn nhanh tiền sử, thuốc đang dùng và xét nghiệm.   │
 │                                                             │
-│ Ai đang đau? Nhân viên CSKH (phân loại tay) + Cư dân (chờ). │
+│ Công ty thành viên: [x] Vinmec                              │
 │                                                             │
-│ Workflow thủ công hiện tại (4 bước):                        │
-│   1. Cư dân gửi phản ánh dạng text trên App                 │
-│   → 2. CSKH đọc, phân loại nhóm vấn đề                      │
-│   → 3. Chuyển thủ công cho ban quản lý đúng tòa             │
-│   → 4. Soạn tin phản hồi cư dân                             │
+│ Ai đang đau (Actor)? Bác sĩ khám bệnh và điều dưỡng hỗ trợ │
+│ chuẩn bị hồ sơ.                                             │
 │                                                             │
-│ Bước nào tốn nhất? Bước 2-3 (⏱ ~8 phút/phản ánh)            │
-│ AI có thể nhảy vào ở bước nào? Bước 2-3 (phân loại + route).│
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Mở hồ sơ cũ, kết quả xét nghiệm, chẩn đoán, đơn thuốc  │
+│   2. Đọc nhiều tài liệu rời rạc để tìm điểm quan trọng      │
+│   3. Tự tóm tắt tình trạng, thuốc đang dùng, điểm cần hỏi   │
+│   4. Chuẩn bị ghi chú cho buổi khám hiện tại                │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)?                        │
-│ 85% phản ánh được phân loại & route đúng dưới 10 giây.      │
+│ Bước nào tốn thời gian/lỗi nhất? Tổng hợp và đọc chéo nhiều │
+│ nguồn thông tin (8-15 phút/bệnh nhân)                       │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Trích xuất thông tin │
+│ quan trọng và tạo bản tóm tắt ngắn theo mẫu cố định.        │
 │                                                             │
-│ Quick Architecture: [x] Rule + LLM Feature                  │
+│ Đo thành công bằng gì (Metric có số)? Giảm thời gian đọc   │
+│ trước khám từ 10 phút xuống dưới 3 phút mỗi bệnh nhân và    │
+│ đạt độ đầy đủ thông tin trên 90%.                           │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent│
 └─────────────────────────────────────────────────────────────┘
-```
 
-### Card #3 — Xanh SM: Phân tích lý do hủy chuyến
-
-```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #3                                       │
 │                                                             │
-│ Bài toán: Tổng hợp ghi âm cuộc gọi + ghi chú tài xế để       │
-│ phân loại lý do hủy chuyến, tìm pattern rò rỉ cuốc.         │
-│ Công ty thành viên: [x] Xanh SM (GSM)                       │
+│ Bài toán (1 câu): Soạn giấy ra viện, hướng dẫn dùng thuốc   │
+│ và lịch tái khám theo từng ca bệnh một cách nhất quán.      │
 │                                                             │
-│ Ai đang đau? Đội phân tích vận hành (back-office).          │
+│ Công ty thành viên: [x] Vinmec                              │
 │                                                             │
-│ Workflow thủ công hiện tại (4 bước):                        │
-│   1. Thu thập log hủy chuyến + ghi chú tài xế               │
-│   → 2. Nghe lại ghi âm / đọc ghi chú                       │
-│   → 3. Gán nhãn lý do hủy thủ công                         │
-│   → 4. Tổng hợp báo cáo tuần                                │
+│ Ai đang đau (Actor)? Điều dưỡng, bác sĩ điều trị và bộ      │
+│ phận hành chính y khoa.                                     │
 │                                                             │
-│ Bước nào tốn nhất? Bước 2-3 (⏱ ~6 phút/case)                │
-│ AI có thể nhảy vào ở bước nào? Bước 3 (auto-gán nhãn).      │
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Lấy chẩn đoán cuối, toa thuốc và chỉ định tái khám     │
+│   2. Copy mẫu giấy ra viện hoặc hướng dẫn chuẩn             │
+│   3. Chỉnh sửa thủ công theo từng bệnh nhân và loại thuốc   │
+│   4. Kiểm tra lại nội dung để tránh thiếu thông tin         │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)?                        │
-│ Giảm thời gian gán nhãn từ 6 phút ──> dưới 1 phút/case.     │
+│ Bước nào tốn thời gian/lỗi nhất? Cá nhân hóa nội dung và    │
+│ rà lỗi hành chính, khoảng 5-10 phút/hồ sơ.                  │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Tạo bản nháp giấy     │
+│ ra viện và dặn dò sau khám từ dữ liệu có cấu trúc.          │
 │                                                             │
-│ Quick Architecture: [x] LLM Feature                         │
+│ Đo thành công bằng gì (Metric có số)? Giảm thời gian soạn  │
+│ từ 8 phút xuống dưới 2 phút/hồ sơ và giảm lỗi thiếu trường  │
+│ bắt buộc xuống dưới 2%.                                     │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent│
 └─────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🗳️ Đề xuất cá nhân
-
-Tôi đề xuất nhóm chọn **Card #1 — Xanh SM: Xử lý sự cố hết pin thực địa** để Deep-Dive, vì đây là bài toán real-time ảnh hưởng trực tiếp đến doanh thu và an toàn giao thông, có metric rõ ràng và ranh giới an toàn cụ thể (bắt buộc Human-in-the-loop + ngưỡng pin nguy cấp).
