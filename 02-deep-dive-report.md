@@ -2,16 +2,14 @@
 
 > ## 👥 Thông tin nhóm (BẮT BUỘC điền đầy đủ)
 >
-> **Tên nhóm:** 🔧 null
+> **Tên nhóm:** nhungu
 >
 > | # | Họ và tên | MSSV | Email đã đăng ký | Đóng góp chính |
 > |---|-----------|------|------------------|----------------|
-> | 1 | 🔧 _Họ tên_ | 🔧 | 🔧 | Code prompt_prototype.py |
-> | 2 | 🔧 _Họ tên_ | 🔧 | 🔧 | Vẽ workflow diagram |
-> | 3 | 🔧 _Họ tên_ | 🔧 | 🔧 | Viết Problem Statement & Evaluate |
-> | 4 | 🔧 _Họ tên_ | 🔧 | 🔧 | Viết AI Log & tổng hợp báo cáo |
-> | 5 | 🔧 _Họ tên_ | 🔧 | 🔧 | Phase 1 SCAN & Quick Cards |
-> | 6 | 🔧 _Họ tên_ | 🔧 | 🔧 | Stress-test prompt & kiểm thử ranh giới |
+> | 1 | Dương Quang Khải | 🔧 | duongkhai222204pt@gmail.com | Code prompt_prototype.py & Stress-test prompt |
+> | 2 | Phùng Hoàng Anh | 🔧 | anhh3642@gmail.com | Vẽ workflow diagram & Phase 1 SCAN |
+> | 3 | Phạm Văn Mạnh | 2A202600837 | pham95168@gmail.com | Viết Problem Statement & Evaluate |
+> | 4 | Trần Văn Khoa | 2A202600827 | khoatranvippro3@gmail.com | Viết AI Log & tổng hợp báo cáo |
 
 ---
 
