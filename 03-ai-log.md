@@ -1,8 +1,5 @@
 # 03 — AI Log & Reflection (Bài cá nhân)
 
-> **Họ và tên:** 🔧 _Điền tên của bạn_
-> **MSSV / Email:** 🔧 _Điền MSSV và email_
-> **Nhóm:** 🔧 _Điền tên nhóm_
 
 > ✍️ _Đây là bản nháp phản ánh trung thực — hãy chỉnh lại theo đúng trải nghiệm thật của bạn trong buổi Lab, thêm/bớt ví dụ cụ thể của riêng mình._
 

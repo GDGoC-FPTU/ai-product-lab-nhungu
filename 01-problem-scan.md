@@ -2,7 +2,7 @@
 
 > **Họ và tên:** 🔧 Dương Quang Khải
 > **MSSV / Email:** 🔧 duongkhai222204pt@gmail.com
-> **Nhóm:** 🔧 null
+> **Nhóm:** 🔧 nhungu
 > **Mảng kinh doanh lựa chọn:** Xanh SM (GSM) — Vận hành xe taxi điện thông minh.
 
 ---
