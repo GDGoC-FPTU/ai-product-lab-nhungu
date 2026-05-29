@@ -129,7 +129,10 @@ def evaluate_prompt(user_input: str) -> str:
 
     try:
         # Option A: New Google GenAI SDK (Preferred Standard)
-        from google import genai
+        # from google import genai
+        # from google.genai import types
+
+        import google.genai as genai
         from google.genai import types
 
         client = genai.Client(api_key=api_key)
